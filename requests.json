@@ -1,62 +1,54 @@
-##
-        print(""" █████╗ ███╗   ██╗ ██████╗ ███╗   ██╗██╗██╗  ██╗
-██╔══██╗████╗  ██║██╔═══██╗████╗  ██║██║╚██╗██╔╝
-███████║██╔██╗ ██║██║   ██║██╔██╗ ██║██║ ╚███╔╝
-██╔══██║██║╚██╗██║██║   ██║██║╚██╗██║██║ ██╔██╗
-██║  ██║██║ ╚████║╚██████╔╝██║ ╚████║██║██╔╝ ██╗
-╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝
-                                                        """)  # Print the title card
-        time.sleep(2)  # Wait a few seconds
-        # Print who developed the code
-        self.slowType("Made by: Drillenissen#4268 && Benz#7274", .02)
-        time.sleep(1)  # Wait a little more
-        # Print the first question
-        self.slowType(
-            "\nInput How Many Codes to Generate and Check: ", .02, newLine=False)
-
-        try:
-            num = int(input(''))  # Ask the user for the amount of codes
-        except ValueError:
-            input("Specified input wasn't a number.\nPress enter to exit")
-            exit()  # Exit program
-
-        if USE_WEBHOOK:
-            # Get the webhook url, if the user does not wish to use a webhook the message will be an empty string
-            self.slowType(
-                "If you want to use a Discord webhook, type it here or press enter to ignore: ", .02, newLine=False)
-            url = input('')  # Get the awnser
-            # If the url is empty make it be None insted
-            webhook = url if url != "" else None
-            
-            if webhook is not None:
-                DiscordWebhook(  # Let the user know it has started logging the ids
-                        url=url,
-                        content=f"```Started checking urls\nI will send any valid codes here```"
-                    ).execute()
-
-        # print() # Print a newline for looks
-
-        valid = []  # Keep track of valid codes
-        invalid = 0  # Keep track of how many invalid codes was detected
-        chars = []
-        chars[:0] = string.ascii_letters + string.digits
-
-        # generate codes faster than using random.choice
-        c = numpy.random.choice(chars, size=[num, 16])
-        for s in c:  # Loop over the amount of codes to check
-            try:
-                code = ''.join(x for x in s)
-                url = f"https://discord.gift/{code}"  # Generate the url
-
-                result = self.quickChecker(url, webhook)  # Check the codes
-
-                if result:  # If the code was valid
-                    # Add that code to the list of found codes
-                    valid.append(url)##
-
-
-
-
+#
+#
+#
+# time.sleep(2)  # Wait a few seconds
+  #      # Print who developed the code
+   #     self.slowType("Made by: Drillenissen#4268 && Benz#7274", .02)
+    #    time.sleep(1)  # Wait a little more
+     #   # Print the first question
+      #  self.slowType(
+       #     "\nInput How Many Codes to Generate and Check: ", .02, newLine=False)
+#
+ #       try:
+  #          num = int(input(''))  # Ask the user for the amount of codes
+   #     except ValueError:
+    #        input("Specified input wasn't a number.\nPress enter to exit")
+     #       exit()  # Exit program
+#
+ #       if USE_WEBHOOK:
+  #          # Get the webhook url, if the user does not wish to use a webhook the message will be an empty string
+   #         self.slowType(
+    #            "If you want to use a Discord webhook, type it here or press enter to ignore: ", .02, newLine=False)
+     #       url = input('')  # Get the awnser
+      #      # If the url is empty make it be None insted
+       #     webhook = url if url != "" else None
+        #    
+         #   if webhook is not None:
+          #      DiscordWebhook(  # Let the user know it has started logging the ids
+           #             url=url,
+            #            content=f"```Started checking urls\nI will send any valid codes here```"
+             #       ).execute()
+#
+ #       # print() # Print a newline for looks
+#
+ #       valid = []  # Keep track of valid codes
+  #      invalid = 0  # Keep track of how many invalid codes was detected
+   #     chars = []
+    #    chars[:0] = string.ascii_letters + string.digits
+#
+ #       # generate codes faster than using random.choice
+  #      c = numpy.random.choice(chars, size=[num, 16])
+   #     for s in c:  # Loop over the amount of codes to check
+    #        try:
+     #           code = ''.join(x for x in s)
+      #          url = f"https://discord.gift/{code}"  # Generate the url
+#
+ #               result = self.quickChecker(url, webhook)  # Check the codes
+#
+ #               if result:  # If the code was valid
+  #                  # Add that code to the list of found codes
+   #                 valid.append(url) 
+#
 
 
 
